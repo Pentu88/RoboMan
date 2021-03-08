@@ -1,4 +1,7 @@
 # RoboMan
+![GitHub Actions](https://github.com/Pentu88/RoboMan/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/Pentu88/RoboMan/branch/main/graph/badge.svg?token=SSDZ1WRIL4)](https://codecov.io/gh/Pentu88/RoboMan)
+
 ![roboman](images/roboman.bmp)
 
 ## Lisenssi
