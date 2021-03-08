@@ -38,4 +38,10 @@ jobs:
       # Run tests
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
-          echo test, and deploy your project.
+        
+      # Update coverage to CodeCov
+      - name: Coverage report
+        run: poetry run coverage xml
+      - name: Coverage report to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+echo test, and deploy your project.
