@@ -1,4 +1,3 @@
-# TEE PELI TÄHÄN
 import pygame
 from datetime import datetime, timedelta
 from random import random, randint, shuffle, choices
@@ -15,8 +14,6 @@ class RoboMan :
         ruutuKoko = (self.peliAlue['leveys'] * self.peliAlue['skaalaus'], self.peliAlue['korkeus'] * self.peliAlue['skaalaus'])
         self.ruutu = pygame.display.set_mode(ruutuKoko)
         pygame.display.set_caption('Roboman')
-    
-        self.silmukka()
 
     def lataaKuvat(self) :
         self.kuvat = {}
@@ -24,7 +21,7 @@ class RoboMan :
         for nimi in [('robo', 0), ('hirvio', 0), ('kolikko', 3), ('ovi', 4)] :
             kuva = {}
             kuva['nimi'] = nimi[0]
-            kuva['kuva'] = pygame.image.load(nimi[0] + '.png')
+            kuva['kuva'] = pygame.image.load('src/' + nimi[0] + '.png')
             kuva['koodi'] = nimi[1]
             kuva['e'] = None
             
@@ -92,11 +89,9 @@ class RoboMan :
         if olio['kuva']['nimi'] != 'robo' :
             self.arvoSuunta(olio)
 
-            # print(olio['liike'])
-
         return olio 
 
-    def silmukka(self) :
+    def run(self) :
         kello = pygame.time.Clock()
 
         while True :
@@ -248,6 +243,9 @@ class RoboMan :
             return
 
         olio['koordit'] = (uusiX, uusiY)
+
+        # DEBUG for tests
+        return (uusiX, uusiY)
         
         # Jos robo
         if olio['id'] == self.etsiRobo()['id'] :
@@ -355,9 +353,6 @@ class RoboMan :
                 # self.ruutu.blit()
 
         pygame.display.flip()
-
-if __name__ == '__main__' :
-    RoboMan()
 
 # Peliin jäi vielä reippaasti Refaktoroitavaa :
 # - Pelin aloittaminen (voisi olla hyvä aloittaa vasta kun käyttäjä niin haluaa, eikä heti kun ikkuna aukeaa)
